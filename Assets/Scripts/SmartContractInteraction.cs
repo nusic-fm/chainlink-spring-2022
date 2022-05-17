@@ -198,8 +198,10 @@ public class SmartContractInteraction : MonoBehaviour
         };
 
         yield return transactionRequestStatistics.SignAndSendTransaction(transactionMessage, contractAddress);
+        
+        //transactionRequestStatistics.Result.re
 
-        Debug.Log("stats:" + transactionRequestStatistics);
+        Debug.Log("stats:" + transactionRequestStatistics.Result.ToString());
 
          var queryRequest = new QueryUnityRequest<RequestIdStatisticsFunction, RequestIdStatisticsOutputDTO>(url, account);
         yield return queryRequest.Query(new RequestIdStatisticsFunction() { ReturnValue1 = jobIDbytes }, contractAddress);
