@@ -10,6 +10,8 @@ public class AIControl : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         agent.SetDestination(goalLocationsScript.goalLocations[Random.Range(0, goalLocationsScript.goalLocations.Length)].transform.position);
+        float speedMultiplier = Random.Range(0.1f, 1.5f);
+        agent.speed *= speedMultiplier;
     }
 
     void Update()
