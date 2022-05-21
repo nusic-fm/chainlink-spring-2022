@@ -11,6 +11,8 @@ TagManager:
   - ErrorPanel
   - CanBeAttacked
   - goal
+  - CinemachineTarget
+  - Glow
   layers:
   - Default
   - TransparentFX
