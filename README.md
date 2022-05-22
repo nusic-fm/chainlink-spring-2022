@@ -7,9 +7,7 @@ Coming soon
 ### Install all dependencies:
 
 - [Unity Hub](https://unity3d.com/get-unity/download)
-- [Visual Studio](https://visualstudio.microsoft.com/)
-
-### [Download latest Nusic Asset Package Release](https://github.com/nusic-fm/chainlink-spring-2022/releases)
+- [Visual Studio](https://visualstudio.microsoft.com)
 
 ### Create a New Unity Project and Import the Package
 
@@ -22,8 +20,9 @@ Coming soon
   > - 2020.3.31 (latest)
   > - 2021.2.5
   > 
-  > If you do not see the version of Unity you want in Unity Hub, find and download it in the [Unity Download Archive](https://unity3d.com/get-unity/download/archive)*
+  > If you do not see the version of Unity you want in Unity Hub, find and download it in the [Unity Download Archive](https://unity3d.com/get-unity/download/archive)
 - When the project opens, open Edit->Preferences->External Tools (on MAC this is Unity->Preferences->External Tools) and make sure "Script Editor" is set to your installed Visual Studio instance. IMPORTANT: This step must be done before importing the package.
+- [Download latest Nusic Asset Package Release](https://github.com/nusic-fm/chainlink-spring-2022/releases)
 - Navigate to the folder you downloaded the package to. Drag and drop the package into the Unity project (or double-click on the .unitypackage).
   
   <img src="https://raw.githubusercontent.com/ethereum-boilerplate/web3-unity-boilerplate/main/gifs/add.gif" width="600" height="346" />
