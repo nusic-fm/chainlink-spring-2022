@@ -1717,6 +1717,7 @@ GameObject:
   m_Component:
   - component: {fileID: 225422515}
   - component: {fileID: 225422514}
+  - component: {fileID: 225422516}
   m_Layer: 0
   m_Name: Audience
   m_TagString: Untagged
@@ -1739,6 +1740,7 @@ MonoBehaviour:
   spotifyAudienceMember: {fileID: 731657710}
   tikTokAudienceMember: {fileID: 774353397}
   youTubeAudienceMember: {fileID: 1859150920}
+  smartContract: {fileID: 225422516}
   goalLocationsScript: {fileID: 924475185}
 --- !u!4 &225422515
 Transform:
@@ -1757,6 +1759,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &225422516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225422513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59dba306c17ad6f42a16b67b42e79840, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AokiYouTubeAudienceNumber: 0
+  AokiTikTiokAudienceNumber: 0
+  AokiSpotifyAudienceNumber: 0
+  DeadmouseYouTubeAudienceNumber: 0
+  DeadMouseTikTiokAudienceNumber: 0
+  DeadMouseSpotifyAudienceNumber: 0
+  RacYouTubeAudienceNumber: 0
+  RacTikTiokAudienceNumber: 0
+  RacSpotifyAudienceNumber: 0
+  JacquesYouTubeAudienceNumber: 0
+  JacquesTikTiokAudienceNumber: 0
+  JacquesSpotifyAudienceNumber: 0
+  contractAddress: 0x640d0F31499e1D396d01E3dC5FB2752Cb5356f47
+  chainID: 42
 --- !u!1 &237936638
 GameObject:
   m_ObjectHideFlags: 0
@@ -2046,7 +2074,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -612.50006}
+  m_AnchoredPosition: {x: 0, y: -612.50037}
   m_SizeDelta: {x: 640, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &253794975
@@ -3014,7 +3042,8 @@ Transform:
   m_LocalRotation: {x: -0.6653579, y: 0.0027371014, z: -0.0060786866, w: -0.74649477}
   m_LocalPosition: {x: -6.53, y: 42.79, z: -22.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 588936451}
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 83.416, y: 2.001, z: 362.716}
@@ -3522,6 +3551,7 @@ GameObject:
   - component: {fileID: 497087312}
   - component: {fileID: 497087314}
   - component: {fileID: 497087313}
+  - component: {fileID: 497087315}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3705,6 +3735,39 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &497087315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497087308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &499726528
 GameObject:
   m_ObjectHideFlags: 0
@@ -3974,8 +4037,7 @@ Transform:
   m_LocalRotation: {x: -0.6653579, y: 0.0027371014, z: -0.0060786866, w: -0.74649477}
   m_LocalPosition: {x: -6.5300293, y: 42.789978, z: -18.896}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 588936451}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4296,8 +4358,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 5.66
+  MaxDistance: 9.46
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -4332,7 +4394,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -4380,10 +4442,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 588936449}
   m_LocalRotation: {x: 0.6653579, y: -0.0027371014, z: 0.0060786866, w: -0.74649477}
-  m_LocalPosition: {x: 745.31323, y: 196.89906, z: 54.54335}
+  m_LocalPosition: {x: 0.06, y: 6.05, z: 7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 525014554}
+  m_Father: {fileID: 392019530}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &626920931
@@ -5852,7 +5914,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &874433991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5955,7 +6017,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 874433990}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -10540,7 +10602,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1832193659
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10638,7 +10700,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1832193658}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 

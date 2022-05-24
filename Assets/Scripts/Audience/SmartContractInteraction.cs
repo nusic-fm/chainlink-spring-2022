@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
+using Nethereum.Web3;
 using Nethereum.ABI;
 using Nethereum.ABI.Encoders;
 using Nethereum.ABI.FunctionEncoding.Attributes;
@@ -14,132 +15,79 @@ using UnityEngine;
 
 public class SmartContractInteraction : MonoBehaviour
 {
-    public partial class AudienceDeployment : AudienceDeploymentBase
-    {
-        public AudienceDeployment() : base(BYTECODE) { }
-        public AudienceDeployment(string byteCode) : base(byteCode) { }
-    }
+    public ulong AokiYouTubeAudienceNumber;
+    public ulong AokiTikTiokAudienceNumber;
+    public ulong AokiSpotifyAudienceNumber;
 
-    public class AudienceDeploymentBase : ContractDeploymentMessage
-    {
-        public static string BYTECODE = "0x";
-        public AudienceDeploymentBase() : base(BYTECODE) { }
-        public AudienceDeploymentBase(string byteCode) : base(byteCode) { }
-        [Parameter("address", "_link", 1)]
-        public virtual string Link { get; set; }
-        [Parameter("address", "_oracle", 2)]
-        public virtual string Oracle { get; set; }
-    }
+    public int DeadmouseYouTubeAudienceNumber;
+    public int DeadMouseTikTiokAudienceNumber;
+    public int DeadMouseSpotifyAudienceNumber;
 
-    public partial class FulfillStatisticsFunction : FulfillStatisticsFunctionBase { }
+    public int RacYouTubeAudienceNumber;
+    public int RacTikTiokAudienceNumber;
+    public int RacSpotifyAudienceNumber;
 
-    [Function("fulfillStatistics")]
-    public class FulfillStatisticsFunctionBase : FunctionMessage
-    {
-        [Parameter("bytes32", "_requestId", 1)]
-        public virtual byte[] RequestId { get; set; }
-        [Parameter("bytes32", "_result", 2)]
-        public virtual byte[] Result { get; set; }
-    }
+    public int JacquesYouTubeAudienceNumber;
+    public int JacquesTikTiokAudienceNumber;
+    public int JacquesSpotifyAudienceNumber;
 
-    public partial class RequestStatisticsFunction : RequestStatisticsFunctionBase { }
 
-    [Function("requestStatistics")]
-    public class RequestStatisticsFunctionBase : FunctionMessage
-    {
-        [Parameter("bytes32", "_specId", 1)]
-        public virtual byte[] SpecId { get; set; }
-        [Parameter("uint256", "_payment", 2)]
-        public virtual BigInteger Payment { get; set; }
-        [Parameter("uint256", "_artistId", 3)]
-        public virtual BigInteger ArtistId { get; set; }
-    }
-
-    public partial class SetOracleFunction : SetOracleFunctionBase { }
-
-    [Function("setOracle")]
-    public class SetOracleFunctionBase : FunctionMessage
-    {
-        [Parameter("address", "_oracle", 1)]
-        public virtual string Oracle { get; set; }
-    }
-
-    public partial class WithdrawLinkFunction : WithdrawLinkFunctionBase { }
-
-    [Function("withdrawLink")]
-    public class WithdrawLinkFunctionBase : FunctionMessage
-    {
-        [Parameter("uint256", "_amount", 1)]
-        public virtual BigInteger Amount { get; set; }
-        [Parameter("address", "_payee", 2)]
-        public virtual string Payee { get; set; }
-    }
-
-    public partial class GetOracleAddressFunction : GetOracleAddressFunctionBase { }
-
-    [Function("getOracleAddress", "address")]
-    public class GetOracleAddressFunctionBase : FunctionMessage
-    {
-
-    }
-
-    public partial class RequestIdStatisticsFunction : RequestIdStatisticsFunctionBase { }
-
-    [Function("requestIdStatistics", typeof(RequestIdStatisticsOutputDTO))]
-    public class RequestIdStatisticsFunctionBase : FunctionMessage
-    {
-        [Parameter("bytes32", "", 1)]
-        public virtual byte[] ReturnValue1 { get; set; }
-    }
-
-    public partial class ChainlinkCancelledEventDTO : ChainlinkCancelledEventDTOBase { }
-
-    [Event("ChainlinkCancelled")]
-    public class ChainlinkCancelledEventDTOBase : IEventDTO
-    {
-        [Parameter("bytes32", "id", 1, true)]
-        public virtual byte[] Id { get; set; }
-    }
-
-    public partial class ChainlinkFulfilledEventDTO : ChainlinkFulfilledEventDTOBase { }
-
-    [Event("ChainlinkFulfilled")]
-    public class ChainlinkFulfilledEventDTOBase : IEventDTO
-    {
-        [Parameter("bytes32", "id", 1, true)]
-        public virtual byte[] Id { get; set; }
-    }
-
-    public partial class ChainlinkRequestedEventDTO : ChainlinkRequestedEventDTOBase { }
-
-    [Event("ChainlinkRequested")]
-    public class ChainlinkRequestedEventDTOBase : IEventDTO
-    {
-        [Parameter("bytes32", "id", 1, true)]
-        public virtual byte[] Id { get; set; }
-    }
-
-    public partial class FailedTransferLINKError : FailedTransferLINKErrorBase { }
-
-    [Error("FailedTransferLINK")]
-    public class FailedTransferLINKErrorBase : IErrorDTO
-    {
-        [Parameter("address", "to", 1)]
-        public virtual string To { get; set; }
-        [Parameter("uint256", "amount", 2)]
-        public virtual BigInteger Amount { get; set; }
-    }
-
-    public partial class GetOracleAddressOutputDTO : GetOracleAddressOutputDTOBase { }
+    // --------------------Aoki------------------------------------
+    [Function("aokiLatestRequestId", "bytes32")]
+    public class AokiLatestRequestIdFunction : FunctionMessage
+    {}
 
     [FunctionOutput]
-    public class GetOracleAddressOutputDTOBase : IFunctionOutputDTO
+    public class AokiLatestRequestIdFunctionOutput : IFunctionOutputDTO
     {
-        [Parameter("address", "", 1)]
-        public virtual string ReturnValue1 { get; set; }
+        [Parameter("bytes32", 1)]
+        public byte[] AokiLatestRequestId { get; set; }
     }
+    
+    // --------------------Dead Mouse------------------------------------
+    [Function("deadMouseLatestRequestId", "bytes32")]
+    public class DeadMouseLatestRequestIdFunction : FunctionMessage
+    {}
 
-    public partial class RequestIdStatisticsOutputDTO : RequestIdStatisticsOutputDTOBase { }
+    [FunctionOutput]
+    public class DeadMouseLatestRequestIdFunctionOutput : IFunctionOutputDTO
+    {
+        [Parameter("bytes32", 1)]
+        public byte[] DeadMouseLatestRequestId { get; set; }
+    }
+    
+    // --------------------Rac------------------------------------
+    [Function("racLatestRequestId", "bytes32")]
+    public class RacLatestRequestIdFunction : FunctionMessage
+    {}
+
+    [FunctionOutput]
+    public class RacLatestRequestIdFunctionOutput : IFunctionOutputDTO
+    {
+        [Parameter("bytes32", 1)]
+        public byte[] RacLatestRequestId { get; set; }
+    }
+    
+    // --------------------Jacques------------------------------------
+    [Function("jacquesLatestRequestId", "bytes32")]
+    public class JacquesLatestRequestIdFunction : FunctionMessage
+    {}
+
+    [FunctionOutput]
+    public class JacquesLatestRequestIdFunctionOutput : IFunctionOutputDTO
+    {
+        [Parameter("bytes32", 1)]
+        public byte[] JacquesLatestRequestId { get; set; }
+    }
+  
+    //---------------------------------------------------------------------------
+    // RequestStatistics method to get the audience data from Artist Request Id   
+    [Function("requestIdStatistics", typeof(RequestIdStatisticsOutputDTOBase))]
+    public class RequestAudianceFunction : FunctionMessage
+    {
+	[Parameter("bytes32", "", 1)]
+        public virtual byte[] RequestId { get; set; }
+    }
 
     [FunctionOutput]
     public class RequestIdStatisticsOutputDTOBase : IFunctionOutputDTO
@@ -152,68 +100,119 @@ public class SmartContractInteraction : MonoBehaviour
         public virtual ulong Tiktok { get; set; }
     }
 
-    public string jobIDstring = "0x6164383735393138633461393434383962626531663965333465373938366366";
-    public byte[] jobIDbytes = { 0x32, 0x39, 0x66, 0x35, 0x62, 0x66, 0x37, 0x31, 0x32, 0x37, 0x37, 0x33, 0x34, 0x64, 0x37, 0x36, 0x38, 0x65, 0x34, 0x30, 0x63, 0x38, 0x62, 0x65, 0x63, 0x35, 0x65, 0x34, 0x31, 0x65, 0x36, 0x62 };
-    public Bytes32TypeEncoder jobID;
-    public string contractAddress = "0x6Dca0a9Fe73FC54F1BEcC4a53561E3173868C687";
+    public string contractAddress = "0x640d0F31499e1D396d01E3dC5FB2752Cb5356f47";
     public int chainID = 42; //42 kovan
 
     private void Start()
     {      
      
-        StartCoroutine(DeployAndRequestAudienceStats());
+        StartCoroutine(RequestAokiAudienceStats());
+        StartCoroutine(RequestDeadMouseAudienceStats());
+        StartCoroutine(RequestRacAudienceStats());
+        StartCoroutine(RequestJacquesAudienceStats());
     }
-    public IEnumerator DeployAndRequestAudienceStats()
+   
+    public IEnumerator RequestAokiAudienceStats()
     {
         var url = "https://kovan.infura.io/v3/c0a7207e810941879cd6ec997951ad6d";
         var privateKey = "52dd6f8bb7e59be19354c35ebc093e6e9ec64a24d017539213342139ecd624bf";
         var account = "0x6Dca0a9Fe73FC54F1BEcC4a53561E3173868C687";
         //initialising the transaction request sender
         var transactionRequest = new TransactionSignedUnityRequest(url, privateKey);
-      
-
-        var deployContract = new AudienceDeployment()
-        {
-            Link = "0xa36085F69e2889c224210F603D836748e7dC0088",
-            Oracle = "0xfF07C97631Ff3bAb5e5e5660Cdf47AdEd8D4d4Fd",
-        };
-
-        //deploy the contract 
-        yield return transactionRequest.SignAndSendDeploymentContractTransaction<AudienceDeploymentBase>(deployContract);
-       
-        if (transactionRequest.Exception != null)
-        {
-            Debug.Log("Throw:" + transactionRequest.Exception.Message);
-            yield break;
-        }
-
-        var transactionRequestStatistics = new TransactionSignedUnityRequest(url, privateKey, chainID);
-        var artistID = 4904;
-
-        var transactionMessage = new RequestStatisticsFunction
-        {
-            SpecId = jobIDbytes,
-            Payment = 1,
-            ArtistId = artistID,
-        };
-
-        yield return transactionRequestStatistics.SignAndSendTransaction(transactionMessage, contractAddress);
         
-        //transactionRequestStatistics.Result.re
+        var queryRequestId = new QueryUnityRequest<AokiLatestRequestIdFunction, AokiLatestRequestIdFunctionOutput>(url, account);
+        yield return queryRequestId.Query(new AokiLatestRequestIdFunction(), contractAddress);
 
-        Debug.Log("stats:" + transactionRequestStatistics.Result.ToString());
+        //Getting the dto response already decoded
+        var AokiLatestRequestId = queryRequestId.Result.AokiLatestRequestId;
 
-         var queryRequest = new QueryUnityRequest<RequestIdStatisticsFunction, RequestIdStatisticsOutputDTO>(url, account);
-        yield return queryRequest.Query(new RequestIdStatisticsFunction() { ReturnValue1 = jobIDbytes }, contractAddress);
+        var queryRequestStats = new QueryUnityRequest<RequestAudianceFunction, RequestIdStatisticsOutputDTOBase>(url, account);
+        yield return queryRequestStats.Query(new RequestAudianceFunction() { RequestId = AokiLatestRequestId}, contractAddress);
+        
+        
+        //Getting the dto response already decoded
+        var dtoResult = queryRequestStats.Result;
+        Debug.Log("Aoki Youtube :" + dtoResult.Youtube);
+        Debug.Log("Aoki Spotify :" + dtoResult.Spotify);
+        Debug.Log("Aoki Tiktok :" + dtoResult.Tiktok);
 
-        var dtoResult = queryRequest.Result;
-        Debug.Log("Spotify :" + dtoResult.Spotify.ToString());
+        AokiYouTubeAudienceNumber = dtoResult.Youtube;
+        AokiTikTiokAudienceNumber = dtoResult.Tiktok;
+        AokiSpotifyAudienceNumber = dtoResult.Spotify;
+    }
+    
+    public IEnumerator RequestDeadMouseAudienceStats()
+    {
+        var url = "https://kovan.infura.io/v3/c0a7207e810941879cd6ec997951ad6d";
+        var privateKey = "52dd6f8bb7e59be19354c35ebc093e6e9ec64a24d017539213342139ecd624bf";
+        var account = "0x6Dca0a9Fe73FC54F1BEcC4a53561E3173868C687";
+        //initialising the transaction request sender
+        var transactionRequest = new TransactionSignedUnityRequest(url, privateKey);
+        
+        var queryRequestId = new QueryUnityRequest<DeadMouseLatestRequestIdFunction, DeadMouseLatestRequestIdFunctionOutput>(url, account);
+        yield return queryRequestId.Query(new DeadMouseLatestRequestIdFunction(), contractAddress);
 
-        var queryRequest2 = new QueryUnityRequest<RequestStatisticsFunction, RequestIdStatisticsOutputDTO>(url, account);
-        yield return queryRequest2.Query(transactionMessage, contractAddress);
+        //Getting the dto response already decoded
+        var DeadMouseLatestRequestId = queryRequestId.Result.DeadMouseLatestRequestId;
 
-        var dtoResult2 = queryRequest2.Result;
-        Debug.Log("Spotify :" + dtoResult2.Spotify.ToString());
+        var queryRequestStats = new QueryUnityRequest<RequestAudianceFunction, RequestIdStatisticsOutputDTOBase>(url, account);
+        yield return queryRequestStats.Query(new RequestAudianceFunction() { RequestId = DeadMouseLatestRequestId}, contractAddress);
+        
+        
+        //Getting the dto response already decoded
+        var dtoResult = queryRequestStats.Result;
+        Debug.Log("DeadMouse Youtube :" + dtoResult.Youtube);
+        Debug.Log("DeadMouse Spotify :" + dtoResult.Spotify);
+        Debug.Log("DeadMouse Tiktok :" + dtoResult.Tiktok);
+    }
+    
+    public IEnumerator RequestRacAudienceStats()
+    {
+        var url = "https://kovan.infura.io/v3/c0a7207e810941879cd6ec997951ad6d";
+        var privateKey = "52dd6f8bb7e59be19354c35ebc093e6e9ec64a24d017539213342139ecd624bf";
+        var account = "0x6Dca0a9Fe73FC54F1BEcC4a53561E3173868C687";
+        //initialising the transaction request sender
+        var transactionRequest = new TransactionSignedUnityRequest(url, privateKey);
+        
+        var queryRequestId = new QueryUnityRequest<RacLatestRequestIdFunction, RacLatestRequestIdFunctionOutput>(url, account);
+        yield return queryRequestId.Query(new RacLatestRequestIdFunction(), contractAddress);
 
+        //Getting the dto response already decoded
+        var RacLatestRequestId = queryRequestId.Result.RacLatestRequestId;
+
+        var queryRequestStats = new QueryUnityRequest<RequestAudianceFunction, RequestIdStatisticsOutputDTOBase>(url, account);
+        yield return queryRequestStats.Query(new RequestAudianceFunction() { RequestId = RacLatestRequestId}, contractAddress);
+        
+        
+        //Getting the dto response already decoded
+        var dtoResult = queryRequestStats.Result;
+        Debug.Log("Rac Youtube :" + dtoResult.Youtube);
+        Debug.Log("Rac Spotify :" + dtoResult.Spotify);
+        Debug.Log("Rac Tiktok :" + dtoResult.Tiktok);
+    }
+    
+    public IEnumerator RequestJacquesAudienceStats()
+    {
+        var url = "https://kovan.infura.io/v3/c0a7207e810941879cd6ec997951ad6d";
+        var privateKey = "52dd6f8bb7e59be19354c35ebc093e6e9ec64a24d017539213342139ecd624bf";
+        var account = "0x6Dca0a9Fe73FC54F1BEcC4a53561E3173868C687";
+        //initialising the transaction request sender
+        var transactionRequest = new TransactionSignedUnityRequest(url, privateKey);
+        
+        var queryRequestId = new QueryUnityRequest<JacquesLatestRequestIdFunction, JacquesLatestRequestIdFunctionOutput>(url, account);
+        yield return queryRequestId.Query(new JacquesLatestRequestIdFunction(), contractAddress);
+
+        //Getting the dto response already decoded
+        var JacquesLatestRequestId = queryRequestId.Result.JacquesLatestRequestId;
+
+        var queryRequestStats = new QueryUnityRequest<RequestAudianceFunction, RequestIdStatisticsOutputDTOBase>(url, account);
+        yield return queryRequestStats.Query(new RequestAudianceFunction() { RequestId = JacquesLatestRequestId}, contractAddress);
+        
+        
+        //Getting the dto response already decoded
+        var dtoResult = queryRequestStats.Result;
+        Debug.Log("Jacques Youtube :" + dtoResult.Youtube);
+        Debug.Log("Jacques Spotify :" + dtoResult.Spotify);
+        Debug.Log("Jacques Tiktok :" + dtoResult.Tiktok);
     }
 }
