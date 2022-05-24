@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/MoralisWeb3ApiSdk/Example/DemoScene.unity
     guid: 40d4add513190a441bb79c9ffe0fff3a
+  - enabled: 1
+    path: Assets/Scenes/Nusic.unity
+    guid: b6b0c8aa1e435164dab50453fd7cee3e
   m_configObjects: {}
