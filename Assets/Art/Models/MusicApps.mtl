@@ -1,0 +1,35 @@
+# Blender MTL File: 'MusicFestival.blend'
+# Material Count: 3
+
+newmtl Material.005
+Ns 479.610025
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.007495 0.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\tucke\\Downloads\\web-189206689.jpg
+
+newmtl Material.008
+Ns 479.610025
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.007495 0.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\tucke\\Desktop\\Spotify_App_Logo.svg.png
+
+newmtl Material.009
+Ns 479.610025
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.007495 0.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\tucke\\Desktop\\logo-icone-tiktok-simbolo.png

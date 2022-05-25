@@ -14,7 +14,7 @@ public class AudioVibes : MonoBehaviour
 	public float clipLoudness;
 	private float[] clipSampleData;
 
-	public GameObject cube;
+	public GameObject dancingObject;
 	public float sizeFactor = 1;
 
 	public float minSize = 0;
@@ -43,7 +43,7 @@ public class AudioVibes : MonoBehaviour
 
 			clipLoudness *= sizeFactor;
 			clipLoudness = Mathf.Clamp(clipLoudness, minSize, maxSize);
-			cube.transform.localScale = new Vector3(clipLoudness, clipLoudness, clipLoudness);
+			dancingObject.transform.localScale = new Vector3(clipLoudness, clipLoudness, clipLoudness);
 		}
 	}
 }

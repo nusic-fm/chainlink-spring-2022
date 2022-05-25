@@ -41,5 +41,9 @@ public class AudienceSpawner : MonoBehaviour
         {
             Instantiate(tikTokAudienceMember, goalLocationsScript.goalLocations[Random.Range(0, goalLocationsScript.goalLocations.Length)].transform.position, Quaternion.identity);
         }
+
+        Destroy(spotifyAudienceMember);
+        Destroy(tikTokAudienceMember);
+        Destroy(youTubeAudienceMember);
     }
 }
