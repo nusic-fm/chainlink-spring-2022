@@ -37,6 +37,7 @@ using Assets;
 using MoralisWeb3ApiSdk;
 using Moralis.WebGL.Hex.HexTypes;
 using System.Numerics;
+using StarterAssets;
 
 #if UNITY_WEBGL
 using Cysharp.Threading.Tasks;
@@ -69,6 +70,8 @@ public class MainMenuScript : MonoBehaviour
     public GameObject androidMenu;
     public GameObject iosMenu;
     public GameObject joystick;
+
+    public GameObject Player;
 
     Image menuBackground;
 
@@ -111,8 +114,10 @@ public class MainMenuScript : MonoBehaviour
     private void FixedUpdate()
     {
         MoralisLiveQueryManager.UpdateWebSockets();
+
     }
 #endif
+
     /// <summary>
     /// Used to start the authentication process and then run the game. If the 
     /// user has a valid Moralis session thes user is redirected to the next 
@@ -152,11 +157,15 @@ public class MainMenuScript : MonoBehaviour
             // Connect experience better.
             //await LoginViaConnectionPage();
 #elif UNITY_WEBGL
-            await LoginWithWeb3();
+            //await LoginWithWeb3();
+            Player.GetComponent<StarterAssetsInputs>().cursorLocked = true;
+            FirstPersonController.CanMove = true;
 #else
             qrMenu.SetActive(true);
 #endif
         }
+
+        Fungus.Flowchart.BroadcastFungusMessage("ShowTutorial");
     }
 
 #if UNITY_WEBGL
@@ -217,6 +226,8 @@ public class MainMenuScript : MonoBehaviour
                 Debug.Log("User login failed.");
             }
         }
+
+        
     }
 #endif
 

@@ -15,6 +15,7 @@ public class AudienceSpawner : MonoBehaviour
     private ulong aokiSpotifyAudienceCount;
     private ulong aokiYouTubeAudienceCount;
     private ulong aokiTikTokAudienceCount;
+    public ulong numToDivide = 10000;
 
     //(goalLocationsScript.goalLocations[Random.Range(0, goalLocationsScript.goalLocations.Length)].transform.position);
 
@@ -25,9 +26,9 @@ public class AudienceSpawner : MonoBehaviour
 
     public void SpawnAudience()
     {
-        aokiSpotifyAudienceCount = smartContract.AokiSpotifyAudienceNumber / 10000;
-        aokiYouTubeAudienceCount = smartContract.AokiYouTubeAudienceNumber / 10000;
-        aokiTikTokAudienceCount = smartContract.AokiTikTiokAudienceNumber / 10000;
+        aokiSpotifyAudienceCount = smartContract.AokiSpotifyAudienceNumber / numToDivide;
+        aokiYouTubeAudienceCount = smartContract.AokiYouTubeAudienceNumber / numToDivide;
+        aokiTikTokAudienceCount = smartContract.AokiTikTiokAudienceNumber / numToDivide;
 
         for (ulong i = 0; i < aokiSpotifyAudienceCount; i++)
         {
