@@ -1,8 +1,10 @@
 using UnityEngine;
 using Fungus;
+using StarterAssets;
 
 public class DialogueTriggers : Command
 {
+    public GameObject Player;
     public bool isWhiteListed = false;
     public GameObject DOXInteractMessage;
     /*
@@ -63,5 +65,28 @@ public class DialogueTriggers : Command
         {
             Fungus.Flowchart.BroadcastFungusMessage("IsWhiteListed");
         }
+    }
+
+    public void InputName()
+    {
+#if UNITY_WEBGL
+
+        Player.GetComponent<StarterAssetsInputs>().cursorLocked = false;
+        FirstPersonController.CanMove = false;
+#else
+
+#endif
+        FirstPersonController.CanMove = false;
+    }
+
+    public void DoneInputName()
+    {
+#if UNITY_WEBGL
+
+        Player.GetComponent<StarterAssetsInputs>().cursorLocked = true;
+        FirstPersonController.CanMove = true;
+#else
+
+#endif
     }
 }
