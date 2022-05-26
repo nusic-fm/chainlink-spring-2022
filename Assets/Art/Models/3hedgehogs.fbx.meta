@@ -1,24 +1,51 @@
 fileFormatVersion: 2
-guid: c4443550d6638994585f3ca86a64a37f
+guid: 0d4749bdc2fe6d04d982c3197a644502
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: -3388490874301088984
+    second: Icosphere.007|Icosphere.003Action
+  - first:
+      74: 1952333050373200781
+    second: Icosphere.007|Icosphere.003Action.001
+  - first:
+      74: -8344753285848935622
+    second: Icosphere.007|Icosphere.003Action.002
+  - first:
+      74: -2221095879305482174
+    second: Icosphere.004|Icosphere.003Action
+  - first:
+      74: 7516200122855926663
+    second: Icosphere.004|Icosphere.003Action.001
+  - first:
+      74: 1629337041480836479
+    second: Icosphere.004|Icosphere.003Action.002
+  - first:
+      74: -302961303485828991
+    second: Icosphere.003|Icosphere.003Action
+  - first:
+      74: -1971887409799886071
+    second: Icosphere.003|Icosphere.003Action.001
+  - first:
+      74: -1379749309325133187
+    second: Icosphere.003|Icosphere.003Action.002
   externalObjects:
   - first:
-      type: UnityEngine:Material
+      type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Material.005
-    second: {fileID: 2100000, guid: 21be7e1b08f6e184e92a1e90812ec379, type: 2}
+      name: Spotify_App_Logo.svg
+    second: {fileID: 2800000, guid: 161f4a30f438f794c8e991fa68199775, type: 3}
   - first:
-      type: UnityEngine:Material
+      type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Material.008
-    second: {fileID: 2100000, guid: d5ecdf54e30afab408f82d5aa4022ed8, type: 2}
+      name: logo-icone-tiktok-simbolo
+    second: {fileID: 2800000, guid: 5437e3422a51d7b4884d0b5b757d210c, type: 3}
   - first:
-      type: UnityEngine:Material
+      type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Material.009
-    second: {fileID: 2100000, guid: 93c0645b574670445a31926025a31056, type: 2}
+      name: web-189206689
+    second: {fileID: 2800000, guid: 6890a85efa1fe764c8346d9c3425f569, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
