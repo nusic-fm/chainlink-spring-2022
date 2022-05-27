@@ -10,7 +10,7 @@ public class AudienceMember : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         agent.SetDestination(goalLocationsScript.goalLocations[Random.Range(0, goalLocationsScript.goalLocations.Length)].transform.position);
-        float speedMultiplier = Random.Range(1.5f, 5.5f);
+        float speedMultiplier = Random.Range(1.5f, 3.5f);
         agent.speed *= speedMultiplier;
     }
 
