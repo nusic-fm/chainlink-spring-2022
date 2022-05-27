@@ -1,15 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Numerics;
-using System.Text;
-using Nethereum.Web3;
-using Nethereum.ABI;
-using Nethereum.ABI.Encoders;
 using Nethereum.ABI.FunctionEncoding.Attributes;
 using Nethereum.ABI.Model;
 using Nethereum.Contracts;
-using Nethereum.Contracts.CQS;
-using Nethereum.Contracts.Extensions;
 using Nethereum.JsonRpc.UnityClient;
 using UnityEngine;
 

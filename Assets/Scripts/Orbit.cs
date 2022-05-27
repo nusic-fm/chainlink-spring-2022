@@ -9,23 +9,33 @@ public class Orbit : MonoBehaviour
 
     public float degreesPerSecond = 50f;
 
+    public bool isActive = false;
+
+    private void Start()
+    {
+        isActive = false;
+    }
+
     void Update()
     {
-        switch(directionAround)
+        if (isActive)
         {
-            case 1:
-                transform.RotateAround(target.transform.position, Vector3.down, Time.deltaTime * degreesPerSecond);
-                break;
-            case 2:
-                transform.RotateAround(target.transform.position, Vector3.up, Time.deltaTime * degreesPerSecond);
-                break;
-            case 3:
-                transform.RotateAround(target.transform.position, Vector3.left, Time.deltaTime * degreesPerSecond);
-                break;
-            case 4:
-                transform.RotateAround(target.transform.position, Vector3.right, Time.deltaTime * degreesPerSecond);
-                break;
-            default: break;
+            switch (directionAround)
+            {
+                case 1:
+                    transform.RotateAround(target.transform.position, Vector3.down, Time.deltaTime * degreesPerSecond);
+                    break;
+                case 2:
+                    transform.RotateAround(target.transform.position, Vector3.up, Time.deltaTime * degreesPerSecond);
+                    break;
+                case 3:
+                    transform.RotateAround(target.transform.position, Vector3.left, Time.deltaTime * degreesPerSecond);
+                    break;
+                case 4:
+                    transform.RotateAround(target.transform.position, Vector3.right, Time.deltaTime * degreesPerSecond);
+                    break;
+                default: break;
+            }
         }
         
     }

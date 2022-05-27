@@ -53,7 +53,6 @@ using Moralis.Web3Api.Models;
 /// </summary>
 public class AwardableController : MonoBehaviour
 {
-    public string artistName;
     public string NftTokenId;
     public string AwardContractAddress;
 
@@ -93,6 +92,8 @@ public class AwardableController : MonoBehaviour
                     await MoralisInterface.GetClient().Web3Api.Account.GetNFTsForContract(addr.ToLower(),
                     AwardContractAddress,
                     ChainList.mumbai);
+
+                Debug.Log("teafgfssfhhghgfhghgw");
 #else
                 NftOwnerCollection noc =
                     await MoralisInterface.GetClient().Web3Api.Account.GetNFTsForContract(addr.ToLower(),
@@ -103,9 +104,10 @@ public class AwardableController : MonoBehaviour
                                                   where n.TokenId.Equals(NftTokenId.ToString())
                                                   select n;
 
-                // aoki Nft tokenIdMetadata = await MoralisInterface.GetClient().Web3Api.Token.GetTokenIdMetadata("0x7de3085b3190b3a787822ee16f23be010f5f8686", "1", ChainList.eth);
-                // jaques Nft tokenIdMetadata = await MoralisInterface.GetClient().Web3Api.Token.GetTokenIdMetadata("0x7de3085b3190b3a787822ee16f23be010f5f8686", "1", ChainList.eth);
-                Nft tokenIdMetadata = await MoralisInterface.GetClient().Web3Api.Token.GetTokenIdMetadata(AwardContractAddress, NftTokenId, ChainList.eth);
+                // aoki "0x7de3085b3190b3a787822ee16f23be010f5f8686", "1"
+                // jaques "0x2FbF71FbB0ab564dCb263FfD1DeC0f3d7482363F", "7"
+                // nft "0x2Ed9B43a7318e2F059fFcc6e19Fe892185BA19F3" "0"
+                Nft tokenIdMetadata = await MoralisInterface.GetClient().Web3Api.Token.GetTokenIdMetadata("0x7de3085b3190b3a787822ee16f23be010f5f8686", "1", ChainList.eth);
                 print(tokenIdMetadata.ToJson());
 
                 //fetch uri from chain
@@ -114,7 +116,7 @@ public class AwardableController : MonoBehaviour
                 {
                     uri = uri.Replace("ipfs://", "https://gateway.moralisipfs.com/ipfs/");
                 }
-                print(artistName + " URI: " + uri);
+                print("URI: " + uri);
 
                 // fetch json from uri
                 UnityWebRequest webRequest = UnityWebRequest.Get(uri);

@@ -9,17 +9,17 @@ using UnityEngine.Networking;
 public class DialogueTriggers : Command
 {
     public GameObject Player;
-    public bool isWhiteListed = false;
+    public static bool isWhiteListed = false;
+    
     public bool interacting = false;
     public GameObject DOXInteractMessage;
 
     public string path;
     public RawImage rawImage;
 
-
     public void OpenExplorer()
     {
-        path = EditorUtility.OpenFilePanel("Overwrite with png", "", "png");
+        path = "";// EditorUtility.OpenFilePanel("Overwrite with png", "", "png");
         StartCoroutine(GetTexture());
     }
 
@@ -43,17 +43,19 @@ public class DialogueTriggers : Command
     public override void OnEnter()
     {
         Fungus.Flowchart.BroadcastFungusMessage("ShowTutorial");
+        NFTScript.ShowingTutorial = true;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        DOXInteractMessage.SetActive(true);
+         DOXInteractMessage.SetActive(true);
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
+
             DOXInteractMessage.SetActive(false);
             InteractWithDOX();
         }
@@ -61,6 +63,7 @@ public class DialogueTriggers : Command
 
     private void OnTriggerExit(Collider other)
     {
+
         DOXInteractMessage.SetActive(false);
     }
 

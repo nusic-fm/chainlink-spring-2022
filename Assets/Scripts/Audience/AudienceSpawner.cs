@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AudienceSpawner : MonoBehaviour
@@ -16,8 +14,6 @@ public class AudienceSpawner : MonoBehaviour
     private ulong aokiYouTubeAudienceCount;
     private ulong aokiTikTokAudienceCount;
     public ulong numToDivide = 10000;
-
-    //(goalLocationsScript.goalLocations[Random.Range(0, goalLocationsScript.goalLocations.Length)].transform.position);
 
     private void Start()
     {
