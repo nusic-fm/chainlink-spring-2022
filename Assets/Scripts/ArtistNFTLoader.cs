@@ -10,8 +10,8 @@ public class ArtistNFTLoader : MonoBehaviour
     {
        
         videoPlayer.url = videoUrl;
-        //videoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
-        //videoPlayer.EnableAudioTrack(0, true);        
+        videoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
+        videoPlayer.EnableAudioTrack(0, true);        
         videoPlayer.Prepare();
     }
 
