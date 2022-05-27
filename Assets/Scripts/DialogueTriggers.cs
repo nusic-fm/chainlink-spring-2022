@@ -1,40 +1,49 @@
 using UnityEngine;
 using Fungus;
 using StarterAssets;
+using UnityEngine.UI;
+using System.Collections;
+using UnityEditor;
+using UnityEngine.Networking;
 
 public class DialogueTriggers : Command
 {
     public GameObject Player;
     public bool isWhiteListed = false;
+    public bool interacting = false;
     public GameObject DOXInteractMessage;
-    /*
-    public Flowchart DOXInteractMessage;
 
-    private void OnTriggerEnter(Collider other)
+    public string path;
+    public RawImage rawImage;
+
+
+    public void OpenExplorer()
     {
-        DOXInteractMessage.SetBooleanVariable("isInDOXTrigger", true);
-        Fungus.Flowchart.BroadcastFungusMessage("DOXPrompt");
+        path = EditorUtility.OpenFilePanel("Overwrite with png", "", "png");
+        StartCoroutine(GetTexture());
     }
 
-    private void OnTriggerStay(Collider other)
+    IEnumerator GetTexture()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        UnityWebRequest www = UnityWebRequestTexture.GetTexture("file:///" + path); ;
+
+        yield return www.SendWebRequest();
+
+        if (www.isNetworkError || www.isHttpError)
         {
-            DOXInteractMessage.SetBooleanVariable("isInDOXTrigger", false);
-            InteractWithDOX();
+            Debug.Log(www.error);
+        }
+        else 
+        {
+            Texture myTexture = ((DownloadHandlerTexture)www.downloadHandler).texture;
+            rawImage.texture = myTexture;
         }
     }
-
-    private void OnTriggerExit(Collider other)
-    {
-        DOXInteractMessage.SetBooleanVariable("isInDOXTrigger", false);
-    }*/
 
     public override void OnEnter()
     {
         Fungus.Flowchart.BroadcastFungusMessage("ShowTutorial");
     }
-
 
     private void OnTriggerEnter(Collider other)
     {
@@ -57,6 +66,7 @@ public class DialogueTriggers : Command
 
     public void InteractWithDOX()
     {
+        interacting = true;
         if (!isWhiteListed)
         {
             Fungus.Flowchart.BroadcastFungusMessage("NotWhiteListed");
@@ -88,5 +98,10 @@ public class DialogueTriggers : Command
 #else
 
 #endif
+    }
+
+    public void StopInteractWithDOX()
+    {
+        interacting = false;
     }
 }

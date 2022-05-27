@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0d4749bdc2fe6d04d982c3197a644502
+guid: 581bd896987a56843b6a153551fc379a
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
@@ -30,22 +30,7 @@ ModelImporter:
   - first:
       74: -1379749309325133187
     second: Icosphere.003|Icosphere.003Action.002
-  externalObjects:
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Spotify_App_Logo.svg
-    second: {fileID: 2800000, guid: 161f4a30f438f794c8e991fa68199775, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: logo-icone-tiktok-simbolo
-    second: {fileID: 2800000, guid: 5437e3422a51d7b4884d0b5b757d210c, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: web-189206689
-    second: {fileID: 2800000, guid: 6890a85efa1fe764c8346d9c3425f569, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
