@@ -7,6 +7,7 @@ public class NFTScript : MonoBehaviour
     public bool interacting = false;
 
     public Component[] orbitScripts;
+    public Component[] spinScripts;
     public AudioSource audioSource;
 
     private void Start()
@@ -16,10 +17,14 @@ public class NFTScript : MonoBehaviour
     public void StartNFT()
     {
         orbitScripts = GetComponentsInChildren<Orbit>();
+        spinScripts = GetComponentsInChildren<Spin>();
         audioSource = GetComponent<AudioSource>();
 
         foreach (Orbit orbiter in orbitScripts)
             orbiter.isActive = true;
+
+        foreach (Orbit spin in spinScripts)
+            spin.isActive = true;
 
         DialogueTriggers.isWhiteListed = true;
         audioSource.Play();
@@ -27,7 +32,7 @@ public class NFTScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!ShowingTutorial)
+        if (!ShowingTutorial && gameObject.tag == "NFTTrigger")
             NFTInteractMessage.SetActive(true);
         else
             NFTInteractMessage.SetActive(false);
@@ -38,7 +43,7 @@ public class NFTScript : MonoBehaviour
     {
         if (!DialogueTriggers.isWhiteListed)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && gameObject.tag == "NFTTrigger")
             {
                 NFTInteractMessage.SetActive(false);
                 InteractWithNFT();

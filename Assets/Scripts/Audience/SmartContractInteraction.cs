@@ -11,13 +11,13 @@ public class SmartContractInteraction : MonoBehaviour
     public ulong AokiTikTiokAudienceNumber;
     public ulong AokiSpotifyAudienceNumber;
 
-    public int DeadmouseYouTubeAudienceNumber;
-    public int DeadMouseTikTiokAudienceNumber;
-    public int DeadMouseSpotifyAudienceNumber;
+    public ulong DeadmouseYouTubeAudienceNumber;
+    public ulong DeadMouseTikTiokAudienceNumber;
+    public ulong DeadMouseSpotifyAudienceNumber;
 
-    public int RacYouTubeAudienceNumber;
-    public int RacTikTiokAudienceNumber;
-    public int RacSpotifyAudienceNumber;
+    public ulong RacYouTubeAudienceNumber;
+    public ulong RacTikTiokAudienceNumber;
+    public ulong RacSpotifyAudienceNumber;
 
     public int JacquesYouTubeAudienceNumber;
     public int JacquesTikTiokAudienceNumber;
@@ -101,7 +101,7 @@ public class SmartContractInteraction : MonoBehaviour
         StartCoroutine(RequestAokiAudienceStats());
         StartCoroutine(RequestDeadMouseAudienceStats());
         StartCoroutine(RequestRacAudienceStats());
-        StartCoroutine(RequestJacquesAudienceStats());
+        //StartCoroutine(RequestJacquesAudienceStats());
     }
    
     public IEnumerator RequestAokiAudienceStats()
@@ -156,6 +156,10 @@ public class SmartContractInteraction : MonoBehaviour
         Debug.Log("DeadMouse Youtube :" + dtoResult.Youtube);
         Debug.Log("DeadMouse Spotify :" + dtoResult.Spotify);
         Debug.Log("DeadMouse Tiktok :" + dtoResult.Tiktok);
+
+        DeadmouseYouTubeAudienceNumber = dtoResult.Youtube;
+        DeadMouseTikTiokAudienceNumber = dtoResult.Tiktok;
+        DeadMouseSpotifyAudienceNumber = dtoResult.Spotify;
     }
     
     public IEnumerator RequestRacAudienceStats()
@@ -181,6 +185,10 @@ public class SmartContractInteraction : MonoBehaviour
         Debug.Log("Rac Youtube :" + dtoResult.Youtube);
         Debug.Log("Rac Spotify :" + dtoResult.Spotify);
         Debug.Log("Rac Tiktok :" + dtoResult.Tiktok);
+
+        RacYouTubeAudienceNumber = dtoResult.Youtube;
+        RacTikTiokAudienceNumber = dtoResult.Tiktok;
+        RacSpotifyAudienceNumber = dtoResult.Spotify;
     }
     
     public IEnumerator RequestJacquesAudienceStats()

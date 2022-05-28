@@ -14,6 +14,9 @@ TagManager:
   - CinemachineTarget
   - Glow
   - NFTTrigger
+  - aoki
+  - deadMouse
+  - RAC
   layers:
   - Default
   - TransparentFX

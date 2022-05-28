@@ -19,11 +19,11 @@ public class DialogueTriggers : Command
 
     public void OpenExplorer()
     {
-        path = "";// EditorUtility.OpenFilePanel("Overwrite with png", "", "png");
-        StartCoroutine(GetTexture());
+        //path = "";// EditorUtility.OpenFilePanel("Overwrite with png", "", "png");
+        //StartCoroutine(GetTexture());
     }
 
-    IEnumerator GetTexture()
+    /*IEnumerator GetTexture()
     {
         UnityWebRequest www = UnityWebRequestTexture.GetTexture("file:///" + path); ;
 
@@ -38,7 +38,7 @@ public class DialogueTriggers : Command
             Texture myTexture = ((DownloadHandlerTexture)www.downloadHandler).texture;
             rawImage.texture = myTexture;
         }
-    }
+    }*/
 
     public override void OnEnter()
     {

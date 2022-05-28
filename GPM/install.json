@@ -1,0 +1,21 @@
+{
+    "installs": [
+        {
+            "name": "Common",
+            "version": "2.0.6",
+            "dependency": []
+        },
+        {
+            "name": "UI",
+            "version": "2.4.0",
+            "dependency": []
+        },
+        {
+            "name": "Profiler",
+            "version": "1.0.2",
+            "dependency": [
+                "UI"
+            ]
+        }
+    ]
+}
